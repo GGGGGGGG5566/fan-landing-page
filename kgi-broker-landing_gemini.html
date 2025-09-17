@@ -11,147 +11,155 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@700&family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+        /* [更新] 定義全新的色彩系統 */
+        :root {
+            --dark-blue: #1C3D5A;
+            --primary-blue: #3B75AF;
+            --light-blue-gradient: #5DA9E9;
+            --accent-orange: #ff6b35;
+            --accent-orange-hover: #e55825;
+            --text-dark: #1a1a1a;
+            --text-light: #ffffff;
+            --text-muted: #64748b;
+            --bg-light: #ffffff;
+            --bg-muted: #fafafa;
+            --border-color: #e2e8f0;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
             line-height: 1.8;
-            color: #1a1a1a;
-            background: #ffffff;
+            color: var(--text-dark);
+            background: var(--bg-light);
         }
 
         h1, h2, h3, h4, h5, h6, .brand-name, .footer-personal, .data-value {
             font-family: 'Playfair Display', 'Noto Serif TC', serif;
         }
         
-        /* ... 其他和前一版相同的 CSS ... */
-        .top-bar { background: #0a0e27; color: #fff; padding: 10px 0; font-size: 14px; overflow: hidden; }
+        .top-bar { background: var(--dark-blue); color: var(--text-light); padding: 10px 0; font-size: 14px; overflow: hidden; }
         .top-bar-content { max-width: 100%; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; gap: 40px; }
         .tradingview-widget-container { flex: 1; min-width: 0; overflow: hidden; }
-        .personal-tagline { color: #ff6b35; letter-spacing: 1px; white-space: nowrap; flex-shrink: 0; padding-left: 20px; font-weight: 500; }
-        .navbar { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .personal-tagline { color: var(--accent-orange); letter-spacing: 1px; white-space: nowrap; flex-shrink: 0; padding-left: 20px; font-weight: 500; }
+        
+        .navbar { background: var(--bg-light); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
         .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
         .personal-brand { display: flex; align-items: center; gap: 15px; }
-        .brand-mark { width: 50px; height: 50px; background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 22px; }
+        .brand-mark { width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue-gradient) 100%); display: flex; align-items: center; justify-content: center; color: var(--text-light); font-weight: bold; font-size: 22px; }
         .brand-text { display: flex; flex-direction: column; }
-        .brand-name { font-size: 22px; font-weight: 700; color: #1e3a8a; }
-        .brand-title { font-size: 12px; color: #64748b; font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; }
+        .brand-name { font-size: 22px; font-weight: 700; color: var(--primary-blue); }
+        .brand-title { font-size: 12px; color: var(--text-muted); font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; }
         .nav-menu { display: flex; gap: 40px; align-items: center; }
-        .nav-menu a { color: #475569; text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
-        .nav-menu a:hover { color: #1e3a8a; }
+        .nav-menu a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+        .nav-menu a:hover { color: var(--primary-blue); }
         .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 5px; }
         .hamburger-icon { width: 28px; height: 22px; display: flex; flex-direction: column; justify-content: space-between; }
-        .hamburger-icon span { display: block; height: 3px; width: 100%; background-color: #1e3a8a; border-radius: 3px; transition: all 0.3s ease-in-out; }
-        .hero { background: linear-gradient(110deg, #0a0e27 0%, #1e3a8a 100%); padding: 80px 20px; position: relative; overflow: hidden; }
-        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle, rgba(59,130,246,0.08) 1px, transparent 1px); background-size: 25px 25px; }
+        .hamburger-icon span { display: block; height: 3px; width: 100%; background-color: var(--primary-blue); border-radius: 3px; transition: all 0.3s ease-in-out; }
+        
+        .hero { background: linear-gradient(110deg, var(--dark-blue) 0%, var(--primary-blue) 100%); padding: 80px 20px; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 25px 25px; }
         .hero-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; }
-        .hero-content { color: white; }
-        .personal-badge { display: inline-block; background: rgba(255,107,53,0.2); border: 1px solid #ff6b35; padding: 8px 20px; margin-bottom: 25px; font-size: 14px; color: #ff6b35; letter-spacing: 2px; font-weight: 500; }
+        .hero-content { color: var(--text-light); }
+        .personal-badge { display: inline-block; background: rgba(255,107,53,0.2); border: 1px solid var(--accent-orange); padding: 8px 20px; margin-bottom: 25px; font-size: 14px; color: var(--accent-orange); letter-spacing: 2px; font-weight: 500; }
         .hero-title { font-size: 52px; line-height: 1.2; margin-bottom: 15px; font-weight: 700; }
-        .hero-title strong { display: block; background: linear-gradient(90deg, #ff6b35 0%, #ff9500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 56px; }
-        .hero-subtitle { font-size: 20px; color: #94a3b8; margin-bottom: 25px; font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; }
+        .hero-title strong { display: block; background: linear-gradient(90deg, var(--accent-orange) 0%, #ff9500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 56px; }
+        .hero-subtitle { font-size: 20px; color: #b0c4de; margin-bottom: 25px; font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; }
         .hero-desc { font-size: 18px; line-height: 1.8; margin-bottom: 40px; opacity: 0.9; }
         .credentials { display: flex; gap: 30px; margin-bottom: 40px; padding-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.2); flex-wrap: wrap;}
         .credential-item { display: flex; align-items: center; gap: 12px; font-size: 15px; }
-        .credential-icon { color: #ff6b35; font-size: 20px; }
+        .credential-icon { color: var(--accent-orange); font-size: 20px; }
         .hero-buttons { display: flex; gap: 20px; }
         .btn { padding: 15px 35px; font-size: 16px; font-weight: 500; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 10px; border: none; cursor: pointer; }
-        .btn-primary { background: #ff6b35; color: white; }
-        .btn-primary:hover { background: #e55825; transform: translateX(5px); }
-        .btn-outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.3); }
-        .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #ff6b35; }
-        .hero-visual { position: relative; }
+        .btn-primary { background: var(--accent-orange); color: var(--text-light); }
+        .btn-primary:hover { background: var(--accent-orange-hover); transform: translateX(5px); }
+        .btn-outline { background: transparent; color: var(--text-light); border: 2px solid rgba(255,255,255,0.3); }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--accent-orange); }
         .profile-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); padding: 30px; text-align: center; }
         .profile-photo { width: 100%; height: auto; max-width: 320px; aspect-ratio: 4 / 5; margin-left: auto; margin-right: auto; background: linear-gradient(135deg, #1e293b 0%, #334155 100%); margin-bottom: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #94a3b8; position: relative; overflow: hidden; }
         .profile-photo .iconify { font-size: 100px; opacity: 0.3; margin-bottom: 20px; }
-        .profile-info { color: white; }
+        .profile-info { color: var(--text-light); }
         .profile-name { font-size: 26px; margin-bottom: 8px; font-weight: 700; }
-        .profile-position { font-size: 16px; color: #ff6b35; margin-bottom: 20px; font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; }
-        .profile-stats { display: flex; justify-content: space-around; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
-        .stat { text-align: center; }
-        .stat-number { font-size: 28px; font-weight: 700; }
+        .profile-position { font-size: 16px; color: var(--accent-orange); margin-bottom: 20px; font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; }
+        .stat-number { font-size: 28px; font-weight: 700; color: var(--accent-orange);}
         .stat-label { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 5px; }
-        .side-buttons { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 999; display: flex; flex-direction: column; }
-        .side-btn { background: #1e3a8a; color: white; padding: 20px; text-decoration: none; display: flex; align-items: center; justify-content: center; writing-mode: vertical-rl; text-orientation: mixed; font-size: 14px; font-weight: 500; transition: all 0.3s ease; }
-        .side-btn:hover { padding-right: 30px; background: #1e40af; }
-        .side-btn.gold { background: #ff6b35; color: white; }
-        .side-btn.gold:hover { background: #e55825; }
-        .side-btn.green { background: #10b981; }
-        .side-btn.green:hover { background: #059669; }
+        
         .personal-data, .services, .philosophy, .insights, .contact { padding: 80px 20px; }
         .data-container, .services-container, .philosophy-container, .insights-container, .contact-container { max-width: 1200px; margin: 0 auto; }
         .data-header, .services-header, .philosophy-container, .insights-header, .contact-header { text-align: center; margin-bottom: 60px; }
-        .data-title, .services-title, .philosophy-title, .insights-title, .contact-title { font-size: 40px; color: #0a0e27; margin-bottom: 15px; font-weight: 700; }
-        .data-title strong, .services-title strong, .philosophy-title strong, .insights-title strong, .contact-title strong { font-weight: 700; }
+        .data-title, .services-title, .philosophy-title, .insights-title, .contact-title { font-size: 40px; color: var(--dark-blue); margin-bottom: 15px; font-weight: 700; }
         .data-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
-        .data-card { background: white; padding: 30px 20px; text-align: center; border-top: 4px solid #1e3a8a; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: all 0.3s ease; }
+        .data-card { background: var(--bg-light); padding: 30px 20px; text-align: center; border-top: 4px solid var(--primary-blue); box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: all 0.3s ease; }
         .data-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-        .data-icon { font-size: 36px; color: #1e3a8a; margin-bottom: 20px; }
-        .data-value { font-size: 36px; font-weight: 700; color: #0a0e27; margin-bottom: 8px; }
-        .data-label { font-size: 14px; color: #64748b; }
-        
-        .services-header {
-            max-width: 600px;
-            margin-right: auto;
-            margin-left: auto;
-            /* [修正] 將 text-align 從 left 改為 center */
-            text-align: center;
-        }
-
-        .services-desc { color: #64748b; line-height: 1.8; }
+        .data-icon { font-size: 36px; color: var(--primary-blue); margin-bottom: 20px; }
+        .data-value { font-size: 36px; font-weight: 700; color: var(--dark-blue); margin-bottom: 8px; }
+        .data-label { font-size: 14px; color: var(--text-muted); }
+        .services-header { max-width: 600px; margin: 0 auto 60px; text-align: center; }
+        .services-desc { color: var(--text-muted); line-height: 1.8; }
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
         .service-item { display: flex; gap: 20px; align-items: flex-start; text-align: left; }
-        .service-number { width: 40px; height: 40px; background: #1e3a8a; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
-        .service-content h3 { font-size: 20px; margin-bottom: 10px; color: #0a0e27; }
-        .service-content p { font-size: 15px; color: #64748b; line-height: 1.6; }
+        .service-number { width: 40px; height: 40px; background: var(--primary-blue); color: var(--text-light); display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+        .service-content h3 { font-size: 20px; margin-bottom: 10px; color: var(--dark-blue); }
+        .service-content p { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
+        
+        .philosophy { background: var(--dark-blue); color: var(--text-light); }
+        .philosophy-title { color: var(--accent-orange); }
+        .philosophy-author { color: var(--accent-orange); }
+        
+        .insights { background: var(--bg-muted); }
+        
+        .contact-info-card { background: var(--dark-blue); color: var(--text-light); padding: 40px; }
+        .contact-info-title { color: var(--accent-orange); }
+        .contact-icon { color: var(--accent-orange); }
+        .contact-value a { color: var(--accent-orange); }
+        .qr-code-title { color: var(--accent-orange); }
+        
+        .quick-actions-container { background: var(--bg-light); padding: 40px; border: 1px solid var(--border-color); }
+        .action-btn.primary { background: var(--primary-blue); color: var(--text-light); }
+        .action-btn.primary:hover { background: var(--dark-blue); }
+        .action-btn.email { background: var(--accent-orange); color: var(--text-light); }
+        .action-btn.email:hover { background: var(--accent-orange-hover); }
+
+        footer { background: var(--dark-blue); color: rgba(255,255,255,0.6); border-top: 1px solid rgba(255,255,255,0.1); }
+        .footer-personal { color: var(--accent-orange); }
+
         .philosophy-container { max-width: 900px; }
-        .philosophy { background: #0a0e27; color: white; }
-        .philosophy-title { color: #ff6b35; }
         .philosophy-quote { font-size: 24px; line-height: 1.8; font-style: italic; opacity: 0.9; margin-bottom: 30px; font-family: 'Playfair Display', 'Noto Serif TC', serif;}
-        .philosophy-author { font-size: 18px; color: #ff6b35; }
-        .insights { background: #fafafa; }
+        .philosophy-author { font-size: 18px; }
         .insights-container { max-width: 1000px; }
-        .insights-desc { max-width: 600px; margin: 0 auto; color: #64748b; }
+        .insights-desc { max-width: 600px; margin: 0 auto; color: var(--text-muted); }
         .tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
-        .tab-button { padding: 10px 25px; font-size: 16px; font-weight: 600; cursor: pointer; border: 2px solid #e2e8f0; background: #fff; color: #475569; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;}
-        .tab-button.active { background: #1e3a8a; color: white; border-color: #1e3a8a;}
+        .tab-button { padding: 10px 25px; font-size: 16px; font-weight: 600; cursor: pointer; border: 2px solid var(--border-color); background: var(--bg-light); color: var(--text-muted); transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;}
+        .tab-button.active { background: var(--primary-blue); color: var(--text-light); border-color: var(--primary-blue);}
         .tab-content { display: none; }
         .tab-content.active { display: block; }
         .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-        .contact-info-card { background: #0a0e27; color: white; padding: 40px; }
-        .contact-info-title { font-size: 26px; margin-bottom: 30px; color: #ff6b35; }
+        .contact-info-title { font-size: 26px; margin-bottom: 30px; }
         .contact-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; }
-        .contact-icon { font-size: 24px; color: #ff6b35; margin-top: 5px; flex-shrink: 0; width: 30px; text-align: center; }
+        .contact-icon { font-size: 24px; margin-top: 5px; flex-shrink: 0; width: 30px; text-align: center; }
         .contact-text { flex: 1; }
         .contact-label { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 5px; }
         .contact-value { font-size: 16px; }
-        .contact-value a { color: #ff6b35; text-decoration: none; }
         .qr-code-area { margin-top: 30px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.2); text-align: center;}
-        .qr-code-title { color: #ff6b35; margin-bottom: 15px; font-size: 16px; font-family: 'Playfair Display', 'Noto Serif TC', serif; }
+        .qr-code-title { margin-bottom: 15px; font-size: 16px; font-family: 'Playfair Display', 'Noto Serif TC', serif; }
         .qr-code-box { width: 180px; height: 180px; background: white; padding: 10px; margin: 0 auto; }
         .qr-code-box img { width: 100%; height: 100%; display: block; object-fit: contain; }
         .qr-code-caption { color: rgba(255,255,255,0.7); margin-top: 10px; font-size: 14px; }
-        .quick-actions-container { background: white; padding: 40px; border: 1px solid #e2e8f0; }
         .quick-actions-title { font-size: 26px; }
         .action-buttons { display: grid; gap: 15px; }
         .action-btn { padding: 15px; text-align: center; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 8px; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .action-btn .iconify { font-size: 20px; }
-        .action-btn.primary { background: #1e3a8a; color: white; }
-        .action-btn.primary:hover { background: #1e40af; transform: translateY(-2px); }
-        .action-btn.line { background: #06c755; color: white; }
+        .action-btn.line { background: #06c755; color: var(--text-light); }
         .action-btn.line:hover { background: #05a548; transform: translateY(-2px); }
-        .action-btn.email { background: #ff6b35; color: white; }
-        .action-btn.email:hover { background: #e55825; transform: translateY(-2px); }
-        footer { background: #0a0e27; padding: 40px 20px; text-align: center; color: rgba(255,255,255,0.6); border-top: 1px solid rgba(255,255,255,0.1); }
         .footer-personal { font-size: 22px; }
-        
+
         @media (max-width: 992px) { 
             .hero-container, .contact-content { grid-template-columns: 1fr; }
             .hero-container { gap: 40px; }
             .hero-content { text-align: center; }
             .credentials, .hero-buttons { justify-content: center; }
         }
-
         @media (max-width: 768px) {
             .personal-data, .services, .philosophy, .insights, .contact { padding: 60px 20px; }
             .data-grid { grid-template-columns: repeat(2, 1fr); } 
@@ -161,11 +169,7 @@
             .tab-button { flex-grow: 1; }
             .nav-container { position: relative; }
             .nav-toggle { display: flex; z-index: 1001;}
-            .nav-menu {
-                display: none; position: absolute; top: 100%; left: 0;
-                width: 100%; background-color: white; flex-direction: column;
-                padding: 20px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            }
+            .nav-menu { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-light); flex-direction: column; padding: 20px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
             .nav-menu.active { display: flex; }
             .nav-menu a { padding: 15px 0; text-align: center; width: 100%; }
             .hero { padding: 60px 15px; }
@@ -353,18 +357,18 @@
                 <div class="quick-actions-container">
                     <h3 class="quick-actions-title">快速預約</h3>
                     <form style="display: grid; gap: 20px;">
-                        <div><input type="text" placeholder="您的姓名 *" required style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; font-size: 15px;"></div>
-                        <div><input type="tel" placeholder="聯絡電話 *" required style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; font-size: 15px;"></div>
+                        <div><input type="text" placeholder="您的姓名 *" required style="width: 100%; padding: 12px; border: 1px solid var(--border-color); font-size: 15px;"></div>
+                        <div><input type="tel" placeholder="聯絡電話 *" required style="width: 100%; padding: 12px; border: 1px solid var(--border-color); font-size: 15px;"></div>
                         <div>
-                            <select style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; font-size: 15px; color: #64748b;">
+                            <select style="width: 100%; padding: 12px; border: 1px solid var(--border-color); font-size: 15px; color: var(--text-muted);">
                                 <option>選擇諮詢項目</option><option>高淨值財富管理</option><option>企業金融服務</option><option>全球投資佈局</option><option>退休與傳承規劃</option><option>其他</option>
                             </select>
                         </div>
-                        <div><textarea placeholder="想諮詢的內容簡述..." rows="4" style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; font-size: 15px; resize: vertical;"></textarea></div>
-                        <button type="submit" style="background: #1e3a8a; color: white; padding: 15px; border: none; font-weight: 600; font-size: 16px; cursor: pointer; transition: all 0.3s;">送出預約申請 →</button>
+                        <div><textarea placeholder="想諮詢的內容簡述..." rows="4" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); font-size: 15px; resize: vertical;"></textarea></div>
+                        <button type="submit" style="background: var(--primary-blue); color: var(--text-light); padding: 15px; border: none; font-weight: 600; font-size: 16px; cursor: pointer; transition: all 0.3s;">送出預約申請 →</button>
                     </form>
-                    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
-                        <p style="color: #64748b; font-size: 14px; text-align: center; margin-bottom: 15px;">或透過以下方式聯繫</p>
+                    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+                        <p style="color: var(--text-muted); font-size: 14px; text-align: center; margin-bottom: 15px;">或透過以下方式聯繫</p>
                         <div class="action-buttons">
                             <a href="tel:0912345678" class="action-btn primary"><span class="iconify" data-icon="mdi:phone"></span> 立即撥打電話</a>
                             <a href="https://line.me/ti/p/@fan_manager" class="action-btn line"><span class="iconify" data-icon="mdi:line"></span> 加入 LINE 諮詢</a>
