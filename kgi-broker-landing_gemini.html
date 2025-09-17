@@ -5,34 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>范世揚 | 凱基證券台北分行行長 | 財富領航家</title>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@700&family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
-        /* [CSS Styles - 大部分和前一版相同] */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Arial', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+
+        /* [更新] 套用新的字體設定 */
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; /* 預設內文字體 */
+            line-height: 1.8; /* 增加行高，提升閱讀舒適度 */
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        h1, h2, h3, h4, h5, h6, .brand-name, .footer-personal, .data-value {
+            font-family: 'Playfair Display', 'Noto Serif TC', serif; /* 標題字體 */
+        }
+        
         .top-bar { background: #0a0e27; color: #fff; padding: 10px 0; font-size: 14px; overflow: hidden; }
         .top-bar-content { max-width: 100%; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; gap: 40px; }
         .tradingview-widget-container { flex: 1; min-width: 0; overflow: hidden; }
         .personal-tagline { color: #ff6b35; letter-spacing: 1px; white-space: nowrap; flex-shrink: 0; padding-left: 20px; font-weight: 500; }
         .navbar { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
         .personal-brand { display: flex; align-items: center; gap: 15px; }
         .brand-mark { width: 50px; height: 50px; background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 22px; }
         .brand-text { display: flex; flex-direction: column; }
-        .brand-name { font-size: 20px; font-weight: 700; color: #1e3a8a; }
-        .brand-title { font-size: 12px; color: #64748b; }
+        .brand-name { font-size: 22px; font-weight: 700; color: #1e3a8a; }
+        .brand-title { font-size: 12px; color: #64748b; font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; }
         .nav-menu { display: flex; gap: 40px; align-items: center; }
         .nav-menu a { color: #475569; text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
         .nav-menu a:hover { color: #1e3a8a; }
-        .hero { background: linear-gradient(110deg, #0a0e27 0%, #1e3a8a 100%); padding: 100px 20px; position: relative; overflow: hidden; }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 5px; }
+        .hamburger-icon { width: 28px; height: 22px; display: flex; flex-direction: column; justify-content: space-between; }
+        .hamburger-icon span { display: block; height: 3px; width: 100%; background-color: #1e3a8a; border-radius: 3px; transition: all 0.3s ease-in-out; }
+        .hero { background: linear-gradient(110deg, #0a0e27 0%, #1e3a8a 100%); padding: 80px 20px; position: relative; overflow: hidden; }
         .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle, rgba(59,130,246,0.08) 1px, transparent 1px); background-size: 25px 25px; }
         .hero-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; }
         .hero-content { color: white; }
         .personal-badge { display: inline-block; background: rgba(255,107,53,0.2); border: 1px solid #ff6b35; padding: 8px 20px; margin-bottom: 25px; font-size: 14px; color: #ff6b35; letter-spacing: 2px; font-weight: 500; }
-        .hero-title { font-size: 48px; line-height: 1.2; margin-bottom: 15px; font-weight: 300; }
-        .hero-title strong { font-weight: 700; display: block; background: linear-gradient(90deg, #ff6b35 0%, #ff9500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 52px; }
-        .hero-subtitle { font-size: 20px; color: #94a3b8; margin-bottom: 25px; }
+        .hero-title { font-size: 52px; line-height: 1.2; margin-bottom: 15px; font-weight: 700; }
+        .hero-title strong { display: block; background: linear-gradient(90deg, #ff6b35 0%, #ff9500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 56px; }
+        .hero-subtitle { font-size: 20px; color: #94a3b8; margin-bottom: 25px; font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; }
         .hero-desc { font-size: 18px; line-height: 1.8; margin-bottom: 40px; opacity: 0.9; }
-        .credentials { display: flex; gap: 30px; margin-bottom: 40px; padding-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.2); }
+        .credentials { display: flex; gap: 30px; margin-bottom: 40px; padding-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.2); flex-wrap: wrap;}
         .credential-item { display: flex; align-items: center; gap: 12px; font-size: 15px; }
         .credential-icon { color: #ff6b35; font-size: 20px; }
         .hero-buttons { display: flex; gap: 20px; }
@@ -43,14 +62,14 @@
         .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #ff6b35; }
         .hero-visual { position: relative; }
         .profile-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); padding: 30px; text-align: center; }
-        .profile-photo { width: 320px; height: 400px; background: linear-gradient(135deg, #1e293b 0%, #334155 100%); margin-bottom: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #94a3b8; position: relative; overflow: hidden; }
+        .profile-photo { width: 100%; height: auto; max-width: 320px; aspect-ratio: 4 / 5; margin-left: auto; margin-right: auto; background: linear-gradient(135deg, #1e293b 0%, #334155 100%); margin-bottom: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #94a3b8; position: relative; overflow: hidden; }
         .profile-photo .iconify { font-size: 100px; opacity: 0.3; margin-bottom: 20px; }
         .profile-info { color: white; }
-        .profile-name { font-size: 24px; margin-bottom: 8px; font-weight: 500; }
-        .profile-position { font-size: 16px; color: #ff6b35; margin-bottom: 20px; }
+        .profile-name { font-size: 26px; margin-bottom: 8px; font-weight: 700; }
+        .profile-position { font-size: 16px; color: #ff6b35; margin-bottom: 20px; font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; }
         .profile-stats { display: flex; justify-content: space-around; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
         .stat { text-align: center; }
-        .stat-number { font-size: 24px; font-weight: bold; color: #ff6b35; }
+        .stat-number { font-size: 28px; font-weight: 700; }
         .stat-label { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 5px; }
         .side-buttons { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 999; display: flex; flex-direction: column; }
         .side-btn { background: #1e3a8a; color: white; padding: 20px; text-decoration: none; display: flex; align-items: center; justify-content: center; writing-mode: vertical-rl; text-orientation: mixed; font-size: 14px; font-weight: 500; transition: all 0.3s ease; }
@@ -59,51 +78,40 @@
         .side-btn.gold:hover { background: #e55825; }
         .side-btn.green { background: #10b981; }
         .side-btn.green:hover { background: #059669; }
-        .personal-data { padding: 80px 20px; background: #fafafa; }
-        .data-container { max-width: 1200px; margin: 0 auto; }
-        .data-header { text-align: center; margin-bottom: 60px; }
-        .data-title { font-size: 36px; color: #0a0e27; margin-bottom: 15px; font-weight: 300; }
-        .data-title strong { font-weight: 700; }
+        .personal-data, .services, .philosophy, .insights, .contact { padding: 80px 20px; }
+        .data-container, .services-container, .philosophy-container, .insights-container, .contact-container { max-width: 1200px; margin: 0 auto; }
+        .data-header, .services-header, .philosophy-container, .insights-header, .contact-header { text-align: center; margin-bottom: 60px; }
+        .data-title, .services-title, .philosophy-title, .insights-title, .contact-title { font-size: 40px; color: #0a0e27; margin-bottom: 15px; font-weight: 700; }
+        .data-title strong, .services-title strong, .philosophy-title strong, .insights-title strong, .contact-title strong { font-weight: 700; }
         .data-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
         .data-card { background: white; padding: 30px 20px; text-align: center; border-top: 4px solid #1e3a8a; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: all 0.3s ease; }
         .data-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
         .data-icon { font-size: 36px; color: #1e3a8a; margin-bottom: 20px; }
-        .data-value { font-size: 32px; font-weight: 700; color: #0a0e27; margin-bottom: 8px; }
+        .data-value { font-size: 36px; font-weight: 700; color: #0a0e27; margin-bottom: 8px; }
         .data-label { font-size: 14px; color: #64748b; }
-        .services { padding: 80px 20px; background: white; }
-        .services-container { max-width: 1200px; margin: 0 auto; }
-        .services-header { max-width: 600px; margin-bottom: 60px; }
-        .services-title { font-size: 36px; color: #0a0e27; margin-bottom: 20px; font-weight: 300; }
+        .services-header { max-width: 600px; margin-right: auto; margin-left: auto; text-align: left;}
         .services-desc { color: #64748b; line-height: 1.8; }
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-        .service-item { display: flex; gap: 20px; }
+        .service-item { display: flex; gap: 20px; align-items: flex-start; }
         .service-number { width: 40px; height: 40px; background: #1e3a8a; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
-        .service-content h3 { font-size: 18px; margin-bottom: 10px; color: #0a0e27; }
-        .service-content p { font-size: 14px; color: #64748b; line-height: 1.6; }
-        .philosophy { padding: 80px 20px; background: #0a0e27; color: white; }
-        .philosophy-container { max-width: 900px; margin: 0 auto; text-align: center; }
-        .philosophy-title { font-size: 36px; margin-bottom: 40px; color: #ff6b35; }
-        .philosophy-quote { font-size: 22px; line-height: 1.8; font-style: italic; opacity: 0.9; margin-bottom: 30px; }
+        .service-content h3 { font-size: 20px; margin-bottom: 10px; color: #0a0e27; }
+        .service-content p { font-size: 15px; color: #64748b; line-height: 1.6; }
+        .philosophy-container { max-width: 900px; }
+        .philosophy { background: #0a0e27; color: white; }
+        .philosophy-title { color: #ff6b35; }
+        .philosophy-quote { font-size: 24px; line-height: 1.8; font-style: italic; opacity: 0.9; margin-bottom: 30px; font-family: 'Playfair Display', 'Noto Serif TC', serif;}
         .philosophy-author { font-size: 18px; color: #ff6b35; }
-        .insights { padding: 80px 20px; background: #fafafa; }
-        .insights-container { max-width: 1000px; margin: 0 auto; }
-        .insights-header { text-align: center; margin-bottom: 40px;}
-        .insights-title { font-size: 36px; color: #0a0e27; margin-bottom: 15px; font-weight: 300; }
-        .insights-title strong { font-weight: 700; }
+        .insights { background: #fafafa; }
+        .insights-container { max-width: 1000px; }
         .insights-desc { max-width: 600px; margin: 0 auto; color: #64748b; }
-        .tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        .tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
         .tab-button { padding: 10px 25px; font-size: 16px; font-weight: 600; cursor: pointer; border: 2px solid #e2e8f0; background: #fff; color: #475569; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;}
         .tab-button.active { background: #1e3a8a; color: white; border-color: #1e3a8a;}
         .tab-content { display: none; }
         .tab-content.active { display: block; }
-        .contact { padding: 80px 20px; background: white; }
-        .contact-container { max-width: 1200px; margin: 0 auto; }
-        .contact-header { text-align: center; margin-bottom: 60px; }
-        .contact-title { font-size: 36px; color: #0a0e27; margin-bottom: 15px; }
-        .contact-subtitle { font-size: 18px; color: #64748b; }
         .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
         .contact-info-card { background: #0a0e27; color: white; padding: 40px; }
-        .contact-info-title { font-size: 24px; margin-bottom: 30px; color: #ff6b35; }
+        .contact-info-title { font-size: 26px; margin-bottom: 30px; color: #ff6b35; }
         .contact-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; }
         .contact-icon { font-size: 24px; color: #ff6b35; margin-top: 5px; flex-shrink: 0; width: 30px; text-align: center; }
         .contact-text { flex: 1; }
@@ -111,12 +119,12 @@
         .contact-value { font-size: 16px; }
         .contact-value a { color: #ff6b35; text-decoration: none; }
         .qr-code-area { margin-top: 30px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.2); text-align: center;}
-        .qr-code-title { color: #ff6b35; margin-bottom: 15px; font-size: 16px; }
+        .qr-code-title { color: #ff6b35; margin-bottom: 15px; font-size: 16px; font-family: 'Playfair Display', 'Noto Serif TC', serif; }
         .qr-code-box { width: 180px; height: 180px; background: white; padding: 10px; margin: 0 auto; }
         .qr-code-box img { width: 100%; height: 100%; display: block; object-fit: contain; }
         .qr-code-caption { color: rgba(255,255,255,0.7); margin-top: 10px; font-size: 14px; }
         .quick-actions-container { background: white; padding: 40px; border: 1px solid #e2e8f0; }
-        .quick-actions-title { font-size: 24px; color: #0a0e27; margin-bottom: 30px; }
+        .quick-actions-title { font-size: 26px; }
         .action-buttons { display: grid; gap: 15px; }
         .action-btn { padding: 15px; text-align: center; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 8px; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .action-btn .iconify { font-size: 20px; }
@@ -127,18 +135,48 @@
         .action-btn.email { background: #ff6b35; color: white; }
         .action-btn.email:hover { background: #e55825; transform: translateY(-2px); }
         footer { background: #0a0e27; padding: 40px 20px; text-align: center; color: rgba(255,255,255,0.6); border-top: 1px solid rgba(255,255,255,0.1); }
-        .footer-personal { font-size: 20px; color: #ff6b35; margin-bottom: 10px; }
-        @media (max-width: 992px) { .hero-container, .contact-content { grid-template-columns: 1fr; } }
-        @media (max-width: 768px) { .data-grid { grid-template-columns: repeat(2, 1fr); } .services-grid { grid-template-columns: 1fr; } .side-buttons { display: none; } }
+        .footer-personal { font-size: 22px; }
+        
+        @media (max-width: 992px) { 
+            .hero-container, .contact-content { grid-template-columns: 1fr; }
+            .hero-container { gap: 40px; }
+            .hero-content { text-align: center; }
+            .credentials, .hero-buttons { justify-content: center; }
+        }
+
+        @media (max-width: 768px) {
+            .personal-data, .services, .philosophy, .insights, .contact { padding: 60px 20px; }
+            .data-grid { grid-template-columns: repeat(2, 1fr); } 
+            .services-grid { grid-template-columns: 1fr; } 
+            .side-buttons { display: none; }
+            .tabs { flex-wrap: wrap; }
+            .tab-button { flex-grow: 1; }
+            .nav-container { position: relative; }
+            .nav-toggle { display: flex; z-index: 1001;}
+            .nav-menu {
+                display: none; position: absolute; top: 100%; left: 0;
+                width: 100%; background-color: white; flex-direction: column;
+                padding: 20px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+            .nav-menu.active { display: flex; }
+            .nav-menu a { padding: 15px 0; text-align: center; width: 100%; }
+            .hero { padding: 60px 15px; }
+            .hero-title { font-size: 40px; }
+            .hero-title strong { font-size: 44px; }
+            .hero-subtitle { font-size: 18px; }
+            .hero-desc { font-size: 16px; }
+            .data-card { padding: 20px 15px; }
+            .data-value { font-size: 32px; }
+            .data-title, .services-title, .philosophy-title, .insights-title, .contact-title { font-size: 32px; }
+            .philosophy-quote { font-size: 20px; }
+        }
     </style>
 </head>
 <body>
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v15.0" nonce="aBcDeFgH"></script>
-    
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script async src="//www.instagram.com/embed.js"></script>
-
     <div class="top-bar">
         <div class="top-bar-content">
             <div class="tradingview-widget-container">
@@ -149,7 +187,6 @@
             <div class="personal-tagline">20年市場洞見 | 領航財富 · 成就未來</div>
         </div>
     </div>
-    
     <nav class="navbar">
         <div class="nav-container">
             <div class="personal-brand">
@@ -159,22 +196,28 @@
                     <div class="brand-title">凱基證券 台北分行行長</div>
                 </div>
             </div>
-            <div class="nav-menu">
+            <div id="nav-menu" class="nav-menu">
                 <a href="#about">關於我</a>
                 <a href="#services">專業服務</a>
                 <a href="#insights">社群洞見</a>
                 <a href="#contact">聯絡我們</a>
             </div>
+            <button id="nav-toggle" class="nav-toggle">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
         </div>
     </nav>
-    
     <section id="about" class="hero">
         <div class="hero-container">
             <div class="hero-content">
                 <div class="personal-badge">WEALTH STRATEGIST & BRANCH MANAGER</div>
                 <h1 class="hero-title">與您共擘財富藍圖的<strong>領航者</strong></h1>
                 <p class="hero-subtitle">凱基證券台北分行行長 | 資深財富策略顧問</p>
-                <p class="hero-desc">憑藉20年金融市場實戰經驗，我帶領精英團隊，整合集團頂尖資源，<br>專為高淨值家庭與企業，提供兼具宏觀視野與客製深度的財富策略。</p>
+                <p class="hero-desc">憑藉20年金融市場實戰經驗，我帶領精英團隊，整合集團頂尖資源，專為高淨值家庭與企業，提供兼具宏觀視野與客製深度的財富策略。</p>
                 <div class="credentials">
                     <div class="credential-item"><div class="credential-icon"><span class="iconify" data-icon="mdi:check-decagram"></span></div><span>證券分析師執照</span></div>
                     <div class="credential-item"><div class="credential-icon"><span class="iconify" data-icon="mdi:check-decagram"></span></div><span>期貨交易分析人員</span></div>
@@ -205,7 +248,6 @@
             </div>
         </div>
     </section>
-
     <section class="personal-data">
         <div class="data-container">
             <div class="data-header"><h2 class="data-title">我的<strong>專業成就</strong></h2></div>
@@ -237,49 +279,24 @@
             <p class="philosophy-author">- 范世揚</p>
         </div>
     </section>
-    
     <section id="insights" class="insights">
         <div class="insights-container">
             <div class="insights-header">
                 <h2 class="insights-title">社群洞見 & <strong>行長專欄</strong></h2>
                 <p class="insights-desc">同步我在各大社群平台的專業觀點，為您帶來即時的市場分析與前瞻洞察。歡迎追蹤，掌握第一手財經資訊。</p>
             </div>
-            
             <div class="tabs">
-                <button class="tab-button active" onclick="openTab(event, 'facebook-tab')">
-                    <span class="iconify" data-icon="mdi:facebook"></span> Facebook
-                </button>
-                <button class="tab-button" onclick="openTab(event, 'twitter-tab')">
-                    <span class="iconify" data-icon="mdi:twitter"></span> X (Twitter)
-                </button>
-                <button class="tab-button" onclick="openTab(event, 'threads-tab')">
-                    <span class="iconify" data-icon="mdi:at"></span> Threads
-                </button>
+                <button class="tab-button active" onclick="openTab(event, 'facebook-tab')"><span class="iconify" data-icon="mdi:facebook"></span> Facebook</button>
+                <button class="tab-button" onclick="openTab(event, 'twitter-tab')"><span class="iconify" data-icon="mdi:twitter"></span> X (Twitter)</button>
+                <button class="tab-button" onclick="openTab(event, 'threads-tab')"><span class="iconify" data-icon="mdi:at"></span> Threads</button>
             </div>
-
             <div id="facebook-tab" class="tab-content active" style="text-align: center;">
-                <div class="fb-page" 
-                     data-href="https://www.facebook.com/K Securities" 
-                     data-tabs="timeline" 
-                     data-width="500" 
-                     data-height="500" 
-                     data-small-header="false" 
-                     data-adapt-container-width="true" 
-                     data-hide-cover="false" 
-                     data-show-facepile="true">
-                </div>
+                <div class="fb-page" data-href="https://www.facebook.com/KGISecurities" data-tabs="timeline" data-width="500" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
             </div>
-
-            <div id="twitter-tab" class="tab-content">
-                <a class="twitter-timeline" data-height="500" href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a> 
-            </div>
-
-            <div id="threads-tab" class="tab-content" style="display: flex; justify-content: center;">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.threads.net/t/CuX_9-hP2A6" data-instgrm-version="14" style="max-width: 500px; width: 100%;"></blockquote>
-            </div>
+            <div id="twitter-tab" class="tab-content"><a class="twitter-timeline" data-height="500" href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a></div>
+            <div id="threads-tab" class="tab-content" style="display: flex; justify-content: center;"><blockquote class="instagram-media" data-instgrm-permalink="https://www.threads.net/t/CuX_9-hP2A6" data-instgrm-version="14" style="max-width: 500px; width: 100%;"></blockquote></div>
         </div>
     </section>
-
     <section id="contact" class="contact">
         <div class="contact-container">
             <div class="contact-header">
@@ -350,13 +367,11 @@
             </div>
         </div>
     </section>
-    
     <footer>
         <div class="footer-personal">范世揚</div>
         <p>凱基證券股份有限公司 台北分行行長</p>
         <p style="margin-top: 10px;">© 2025 All rights reserved.</p>
     </footer>
-
     <script>
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
@@ -370,16 +385,20 @@
             }
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
-            
-            // Re-render Twitter timeline if it's the selected tab
             if (tabName === 'twitter-tab' && typeof twttr !== 'undefined') {
                 twttr.widgets.load(document.getElementById(tabName));
             }
         }
-        // Set the default tab to be open
         document.addEventListener("DOMContentLoaded", function() {
             document.querySelector('.tab-button.active').click();
         });
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
     </script>
 </body>
 </html>
