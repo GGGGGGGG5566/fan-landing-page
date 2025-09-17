@@ -12,19 +12,19 @@
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        /* [更新] 套用新的字體設定 */
+        
         body {
-            font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; /* 預設內文字體 */
-            line-height: 1.8; /* 增加行高，提升閱讀舒適度 */
+            font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+            line-height: 1.8;
             color: #1a1a1a;
             background: #ffffff;
         }
 
         h1, h2, h3, h4, h5, h6, .brand-name, .footer-personal, .data-value {
-            font-family: 'Playfair Display', 'Noto Serif TC', serif; /* 標題字體 */
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
         }
         
+        /* ... 其他和前一版相同的 CSS ... */
         .top-bar { background: #0a0e27; color: #fff; padding: 10px 0; font-size: 14px; overflow: hidden; }
         .top-bar-content { max-width: 100%; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; gap: 40px; }
         .tradingview-widget-container { flex: 1; min-width: 0; overflow: hidden; }
@@ -89,10 +89,18 @@
         .data-icon { font-size: 36px; color: #1e3a8a; margin-bottom: 20px; }
         .data-value { font-size: 36px; font-weight: 700; color: #0a0e27; margin-bottom: 8px; }
         .data-label { font-size: 14px; color: #64748b; }
-        .services-header { max-width: 600px; margin-right: auto; margin-left: auto; text-align: left;}
+        
+        .services-header {
+            max-width: 600px;
+            margin-right: auto;
+            margin-left: auto;
+            /* [修正] 將 text-align 從 left 改為 center */
+            text-align: center;
+        }
+
         .services-desc { color: #64748b; line-height: 1.8; }
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-        .service-item { display: flex; gap: 20px; align-items: flex-start; }
+        .service-item { display: flex; gap: 20px; align-items: flex-start; text-align: left; }
         .service-number { width: 40px; height: 40px; background: #1e3a8a; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
         .service-content h3 { font-size: 20px; margin-bottom: 10px; color: #0a0e27; }
         .service-content p { font-size: 15px; color: #64748b; line-height: 1.6; }
